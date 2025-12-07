@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: fitgear-arena
+    env: python
+    buildCommand: bash build.sh
+    startCommand: gunicorn web_site.wsgi:application
+    envVars:
+      - key: DEBUG
+        value: false
+      - key: SECRET_KEY
+        generateValue: true
